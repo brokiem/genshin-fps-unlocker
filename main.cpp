@@ -11,7 +11,7 @@
 using json = nlohmann::json;
 
 std::string gamePath;
-int targetFPS = 60;
+int targetFPS = 120;
 
 DWORD FindProcessID(const std::string& processName) {
     DWORD pid = 0;
@@ -121,7 +121,7 @@ void LoadConfig() {
         json jsonContent = json::parse(str);
 
         gamePath = jsonContent.value("game-path", R"(C:\\Program Files\\Genshin Impact\\Genshin Impact game\\GenshinImpact.exe)");
-        targetFPS = jsonContent.value("target-fps", 60);
+        targetFPS = jsonContent.value("target-fps", targetFPS);
 
         jsonFile.close();
     } else {
@@ -144,7 +144,7 @@ void LoadConfig() {
 
         json jsonContent;
         jsonContent["game-path"] = szPath;
-        jsonContent["target-fps"] = 60;
+        jsonContent["target-fps"] = targetFPS;
 
         jsonFile << jsonContent;
         jsonFile.close();
