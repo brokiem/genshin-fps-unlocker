@@ -244,7 +244,8 @@ int main() {
 
     VirtualFree(mem, 0, MEM_RELEASE);
 
-    printf("Target FPS: %d", targetFPS);
+    printf("Target FPS: %d\n", targetFPS);
+    printf("You can change the max fps value in fps-config.json file\n");
 
     int fps = 0;
     int vsync = 0;
