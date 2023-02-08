@@ -125,8 +125,9 @@ void LoadConfig() {
 
         jsonFile.close();
     } else {
-        printf("Config file not found, please open Genshin Impact to create config...\n");
-        printf("The game will exit and you need to run the program again\n");
+        printf("Config file not found, please open Genshin Impact to create config!\n");
+        printf("The game will exit and you need to run the program again\n\n");
+        printf("Waiting for the game to open...\n");
 
         DWORD pid = 0;
         while (!(pid = FindProcessID("YuanShen.exe")) && !(pid = FindProcessID("GenshinImpact.exe"))) {
@@ -227,7 +228,7 @@ int main() {
         uint64_t rax = *(uint32_t *) (rip + 3);
         ppvsync = rip + rax + 7;
         ppvsync -= (uintptr_t) mem;
-        printf("VSync Offset: %llX\n", ppvsync);
+        printf("VSync Offset: %llX\n\n", ppvsync);
         ppvsync = (uintptr_t) hUnityPlayer.modBaseAddr + ppvsync;
 
         uintptr_t buffer = 0;
@@ -242,6 +243,8 @@ int main() {
     }
 
     VirtualFree(mem, 0, MEM_RELEASE);
+
+    printf("Target FPS: %d", targetFPS);
 
     int fps = 0;
     int vsync = 0;
