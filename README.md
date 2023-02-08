@@ -1,3 +1,4 @@
 # genshin-fps-unlocker
 Genshin Impact FPS Unlocker Tool
-ONLY FOR EDUCATION, DO NOT ABUSE
+
+BASE CODE: https://github.com/34736384/genshin-fps-unlock/
